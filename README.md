@@ -1,7 +1,7 @@
 # atividade-duodecimos
 
 ### Grupo:
-- Eduardo
+- Bernardo de Melo Matuchewski
+- Eduardo Mendes Machado
 - Gabriel Silva Barros
-- Bernado
-- Walter
+- Walter Moura e Silva Junio
