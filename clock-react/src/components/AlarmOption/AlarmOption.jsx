@@ -7,22 +7,16 @@ import { AlarmContext } from "../context/ContextAlarm";
 function AlarmOption() {
   const [hour, setHour] = useSelect("Horas");
   const [minutes, setMinutes] = useSelect("Minutos");
-  const { setAlarmTime, pauseAlarm, hasAlarm, setHasAlarm } =
+  const { setAlarmTime, hasAlarm, setHasAlarm } =
     useContext(AlarmContext);
 
-  const setAlarm = () => {
-    if (hasAlarm) {
-      pauseAlarm();
-      setHasAlarm(false);
-      return;
-    }
-
+  const setHorasDuodecimo = () => {
     if (
-      !hour.includes("Hours") &&
-      !minutes.includes("Minutes")
+      !hour.includes("Horas") &&
+      !minutes.includes("Minutos")
     ) {
-      setHasAlarm(true);
-      setAlarmTime(`${hour}:${minutes}`);
+      alert(`${hour}:${minutes}`)
+      setHoraVerificacao(`${hour}:${minutes}`);
     }
   };
 
@@ -51,8 +45,8 @@ function AlarmOption() {
         </select>
       </div>
       <button
-        onClick={setAlarm}
-        className={`setAlarm-btn ${hasAlarm && "play"}`}
+        onClick={setHorasDuodecimo}
+        className={`setAlarm-btn`}
       >
         Selecionar Hora
       </button>

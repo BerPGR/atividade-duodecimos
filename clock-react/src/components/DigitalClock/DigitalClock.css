@@ -10,13 +10,6 @@
   color: var(--white-color);
 }
 
-.clock__text-ampm {
-  font-size: var(--tiny-font-size);
-  color: var(--title-color);
-  font-weight: var(--font-medium);
-  margin-left: var(--mb-0-25);
-}
-
 .clock__date {
   text-align: center;
   font-size: var(--small-font-size);
