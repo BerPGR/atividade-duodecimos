@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./AnalogClock.css";
 import { FcAlarmClock } from "react-icons/fc";
 import { AlarmContext } from "../context/ContextAlarm";
@@ -7,20 +7,29 @@ function AnalogClock() {
   const [hour, setHour] = useState("");
   const [minutes, setMinutes] = useState("");
   const [seconds, setSeconds] = useState("");
-  const { hasAlarm } = useContext(AlarmContext);
+  const { hasAlarm, hourAnalog, minutesAnalog } = useContext(AlarmContext);
+
+  useEffect(() => {
+    clock();
+    // console.log(hourDigital, minutesDigital)
+  }, [hourAnalog, minutesAnalog])
 
   const clock = () => {
-    let date = new Date();
+    // let date = new Date();
 
-    let hh = date.getHours() * 30,
-      mm = date.getMinutes() * 6,
-      ss = date.getSeconds() * 6;
+    // // let hh = date.getHours() * 30,
+    // //   mm = date.getMinutes() * 6,
+    // //   ss = date.getSeconds() * 6;
 
-    setHour(`rotateZ(${hh + mm / 12}deg)`);
-    setMinutes(`rotateZ(${mm}deg)`);
-    setSeconds(`rotateZ(${ss}deg)`);
+    setHour(`rotateZ(${(hourAnalog * 30)}deg)`);
+    setMinutes(`rotateZ(${minutesAnalog * 6}deg)`);
+    console.log("HORA", hourAnalog * 30)
+    console.log("MINUTOS", minutesAnalog * 6)
+    // setSeconds(`rotateZ(${ss}deg)`);
   };
-  setInterval(clock, 1000);
+  // setInterval(clock, 1000);
+
+
 
   return (
     <div className="clock__circle">

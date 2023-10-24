@@ -8,6 +8,8 @@ export const AlarmContext = createContext();
 function ContextAlarm({ children }) {
   const [hourDigital, setHourDigital] = useState("");
   const [minutesDigital, setMinutesDigital] = useState("");
+  const [hourAnalog, setHourAnalog] = useState("");
+  const [minutesAnalog, setMinutesAnalog] = useState("");
   const [amPm, setAmPm] = useState("");
   const [dayNow, setDayNow] = useState("");
   const [monthNow, setMonthNow] = useState("");
@@ -15,36 +17,36 @@ function ContextAlarm({ children }) {
   const [alarmTime, setAlarmTime] = useState("");
   const [hasAlarm, setHasAlarm] = useState(false);
 
-  useEffect(() => {
-    setInterval(() => {
-      let date = new Date();
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     let date = new Date();
 
-      let HH = date.getHours(),
-        MM = date.getMinutes(),
-        day = date.getDate(),
-        month = date.getMonth(),
-        year = date.getFullYear(),
-        ampm;
+  //     let HH = date.getHours(),
+  //       MM = date.getMinutes(),
+  //       day = date.getDate(),
+  //       month = date.getMonth(),
+  //       year = date.getFullYear(),
+  //       ampm;
 
-      if (HH >= 12) {
-        HH = HH - 12;
-        ampm = "PM";
-      } else {
-        ampm = "AM";
-      }
+  //     if (HH >= 12) {
+  //       HH = HH - 12;
+  //       ampm = "PM";
+  //     } else {
+  //       ampm = "AM";
+  //     }
 
-      if (HH === 0) HH = 12;
-      if (HH < 10) HH = `0${HH}`;
-      if (MM < 10) MM = `0${MM}`;
+  //     if (HH === 0) HH = 12;
+  //     if (HH < 10) HH = `0${HH}`;
+  //     if (MM < 10) MM = `0${MM}`;
 
-      setHourDigital(HH);
-      setMinutesDigital(MM);
-      setAmPm(ampm);
-      setDayNow(day);
-      setMonthNow(months[month]);
-      setYearNow(year);
-    }, 1000);
-  }, []);
+  //     setHourDigital(HH);
+  //     setMinutesDigital(MM);
+  //     setAmPm(ampm);
+  //     setDayNow(day);
+  //     setMonthNow(months[month]);
+  //     setYearNow(year);
+  //   }, 1000);
+  // }, []);
 
   if (alarmTime === `${hourDigital}:${minutesDigital} ${amPm}`) {
     alarm.play();
@@ -70,6 +72,12 @@ function ContextAlarm({ children }) {
         pauseAlarm,
         hasAlarm,
         setHasAlarm,
+        setHourAnalog,
+        setMinutesAnalog,
+        hourAnalog,
+        minutesAnalog,
+        setHourDigital,
+        setMinutesDigital
       }}
     >
       {children}
