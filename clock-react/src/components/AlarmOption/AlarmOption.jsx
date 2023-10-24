@@ -7,7 +7,7 @@ import { AlarmContext } from "../context/ContextAlarm";
 function AlarmOption() {
   const [hour, setHour] = useSelect("Horas");
   const [minutes, setMinutes] = useSelect("Minutos");
-  const { setAlarmTime, hasAlarm, setHasAlarm } =
+  const { setHoraVerificacao } =
     useContext(AlarmContext);
 
   const setHorasDuodecimo = () => {
@@ -15,14 +15,13 @@ function AlarmOption() {
       !hour.includes("Horas") &&
       !minutes.includes("Minutos")
     ) {
-      alert(`${hour}:${minutes}`)
       setHoraVerificacao(`${hour}:${minutes}`);
     }
   };
 
   return (
     <div className="option-Container">
-      <div className={`wrapper-option ${hasAlarm && "disable"}`}>
+      <div className={`wrapper-option`}>
         <select {...setHour}>
           <option disabled value="Horas">
             Horas

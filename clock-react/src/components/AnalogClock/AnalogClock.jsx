@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "./AnalogClock.css";
 import { AlarmContext } from "../context/ContextAlarm";
 
@@ -7,16 +7,10 @@ function AnalogClock() {
   const [minutes, setMinutes] = useState("");
   const {hourDigital, minutesDigital} = useContext(AlarmContext)
 
-  const clock = () => {
-    let date = new Date();
-
-    let hh = date.getHours() * 30,
-      mm = date.getMinutes() * 6;
-
-    setHour(`rotateZ(${hh + mm / 12}deg)`);
-    setMinutes(`rotateZ(${mm}deg)`);
-  };
-  setInterval(clock, 1000);
+  useEffect(() => {
+    setHour(`rotateZ(${(hourDigital * 30) + (minutesDigital*6) / 12}deg)`);
+    setMinutes(`rotateZ(${(minutesDigital*6)}deg)`);
+  }, [])
 
   return (
     <div className="clock__circle">

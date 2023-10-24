@@ -23,8 +23,10 @@ function ContextAlarm({ children }) {
       setMinutesDigital(MM);
     } else {
       let horasNormais = horaVerificacao.split(":")
-      const horaJudaica = calculaHora(horasNormais[0])
-      const minutoJudaico = calculaMinuto(horasNormais[1])
+      setHourDigital(horasNormais[0])
+      setMinutesDigital(horasNormais[1])
+      const horaJudaica = calculaHora(parseInt(horasNormais[0]))
+      const minutoJudaico = calculaMinuto(parseInt(horasNormais[1]))
       setHoraJudaica(`${horaJudaica} ${minutoJudaico}`)
     }
   }, []);
@@ -57,7 +59,7 @@ function ContextAlarm({ children }) {
         hourDigital,
         minutesDigital,
         horaJudaica,
-
+        setHoraVerificacao
       }}
     >
       {children}
