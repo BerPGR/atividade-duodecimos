@@ -5,9 +5,8 @@ import useSelect from "../../hook/useSelect";
 import { AlarmContext } from "../context/ContextAlarm";
 
 function AlarmOption() {
-  const [hour, setHour] = useSelect("Hour");
-  const [minutes, setMinutes] = useSelect("Minutes");
-  const [amPmOption, setAmPmOption] = useSelect("Am-Pm");
+  const [hour, setHour] = useSelect("Horas");
+  const [minutes, setMinutes] = useSelect("Minutos");
   const { setAlarmTime, pauseAlarm, hasAlarm, setHasAlarm } =
     useContext(AlarmContext);
 
@@ -19,12 +18,11 @@ function AlarmOption() {
     }
 
     if (
-      !hour.includes("Hour") &&
-      !minutes.includes("Minutes") &&
-      !amPmOption.includes("Am-Pm")
+      !hour.includes("Hours") &&
+      !minutes.includes("Minutes")
     ) {
       setHasAlarm(true);
-      setAlarmTime(`${hour}:${minutes} ${amPmOption}`);
+      setAlarmTime(`${hour}:${minutes}`);
     }
   };
 
@@ -32,8 +30,8 @@ function AlarmOption() {
     <div className="option-Container">
       <div className={`wrapper-option ${hasAlarm && "disable"}`}>
         <select {...setHour}>
-          <option disabled value="Hour">
-            Hour
+          <option disabled value="Horas">
+            Horas
           </option>
           {hourNumber.map((hour, index) => (
             <option key={index} value={hour}>
@@ -42,8 +40,8 @@ function AlarmOption() {
           ))}
         </select>
         <select {...setMinutes}>
-          <option disabled value="Minutes">
-            Minutes
+          <option disabled value="Minutos">
+            Minutos
           </option>
           {minutesNumber.map((minutes, index) => (
             <option key={index} value={minutes}>
@@ -51,19 +49,12 @@ function AlarmOption() {
             </option>
           ))}
         </select>
-        <select {...setAmPmOption}>
-          <option disabled value="Am-Pm">
-            Am/Pm
-          </option>
-          <option value="AM">Am</option>
-          <option value="PM">Pm</option>
-        </select>
       </div>
       <button
         onClick={setAlarm}
         className={`setAlarm-btn ${hasAlarm && "play"}`}
       >
-        {hasAlarm ? "Clear Alarm" : "Set Alarm"}
+        Selecionar Hora
       </button>
     </div>
   );
