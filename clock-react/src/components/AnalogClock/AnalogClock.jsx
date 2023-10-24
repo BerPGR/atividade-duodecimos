@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import "./AnalogClock.css";
+import { AlarmContext } from "../context/ContextAlarm";
 
 function AnalogClock() {
   const [hour, setHour] = useState("");
   const [minutes, setMinutes] = useState("");
+  const {hourDigital, minutesDigital} = useContext(AlarmContext)
 
   const clock = () => {
     let date = new Date();

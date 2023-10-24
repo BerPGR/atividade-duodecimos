@@ -1,5 +1,5 @@
 const minutesNumber = fixNumber(Array.from(Array(60).keys()))
-const hourNumber = fixNumber(Array.from(Array(13).keys()))
+const hourNumber = fixNumber(Array.from(Array(24).keys()))
 
 function fixNumber(value) {
     value = value.map(hour => {
