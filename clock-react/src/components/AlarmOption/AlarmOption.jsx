@@ -4,7 +4,16 @@ import { minutesNumber, hourNumber } from "../../func";
 import useSelect from "../../hook/useSelect";
 import { AlarmContext } from "../context/ContextAlarm";
 
+// formulario
+import { useForm } from 'react-hook-form'
+
 function AlarmOption() {
+  // formulario
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log(data)
+  }
+
   const [hour, setHour] = useSelect("Horas");
   const [minutes, setMinutes] = useSelect("Minutos");
   const { setHoraVerificacao } =
@@ -21,8 +30,8 @@ function AlarmOption() {
 
   return (
     <div className="option-Container">
-      <div className={`wrapper-option`}>
-        <select {...setHour}>
+      <form onSubmit={handleSubmit(onSubmit)} className={`wrapper-option`}>
+        <select {...register("horas")}>
           <option disabled value="Horas">
             Horas
           </option>
@@ -32,7 +41,7 @@ function AlarmOption() {
             </option>
           ))}
         </select>
-        <select {...setMinutes}>
+        <select {...register("minutos")}>
           <option disabled value="Minutos">
             Minutos
           </option>
@@ -42,14 +51,14 @@ function AlarmOption() {
             </option>
           ))}
         </select>
-      </div>
-      <button
-        onClick={setHorasDuodecimo}
-        className={`setAlarm-btn`}
-      >
-        Selecionar Hora
-      </button>
-    </div>
+        <button
+          onClick={setHorasDuodecimo}
+          className={`setAlarm-btn`}
+        >
+          Selecionar Hora
+        </button>
+      </form>
+    </div >
   );
 }
 
