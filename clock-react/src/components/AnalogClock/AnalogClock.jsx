@@ -5,12 +5,14 @@ import { AlarmContext } from "../context/ContextAlarm";
 function AnalogClock() {
   const [hour, setHour] = useState("");
   const [minutes, setMinutes] = useState("");
-  const {hourDigital, minutesDigital} = useContext(AlarmContext)
+  const { hourAnalog, minutesAnalog } = useContext(AlarmContext)
 
   useEffect(() => {
-    setHour(`rotateZ(${(hourDigital * 30) + (minutesDigital*6) / 12}deg)`);
-    setMinutes(`rotateZ(${(minutesDigital*6)}deg)`);
-  }, [])
+    setHour(`rotateZ(${(hourAnalog * 30) + (minutesAnalog * 6) / 12}deg)`);
+    setMinutes(`rotateZ(${(minutesAnalog * 6)}deg)`);
+
+    console.log(hourAnalog, minutesAnalog, hour, minutes)
+  }, [hourAnalog, minutesAnalog])
 
   return (
     <div className="clock__circle">

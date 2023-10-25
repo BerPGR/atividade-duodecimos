@@ -8,16 +8,24 @@ import { AlarmContext } from "../context/ContextAlarm";
 import { useForm } from 'react-hook-form'
 
 function AlarmOption() {
+  const [hour, setHour] = useSelect("Horas");
+  const [minutes, setMinutes] = useSelect("Minutos");
+
+  const { setHoraVerificacao, setHourAnalog, setMinutesAnalog } = useContext(AlarmContext);
+
   // formulario
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data)
+
+    setHourAnalog("")
+    setMinutesAnalog("")
+    setHourAnalog(data.horas)
+    setMinutesAnalog(data.minutos)
   }
 
-  const [hour, setHour] = useSelect("Horas");
-  const [minutes, setMinutes] = useSelect("Minutos");
-  const { setHoraVerificacao } =
-    useContext(AlarmContext);
+
+
 
   const setHorasDuodecimo = () => {
     if (

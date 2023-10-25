@@ -2,6 +2,8 @@ import React, { createContext, useEffect, useState } from "react";
 export const AlarmContext = createContext();
 
 function ContextAlarm({ children }) {
+  const [hourAnalog, setHourAnalog] = useState("");
+  const [minutesAnalog, setMinutesAnalog] = useState("");
   const [hourDigital, setHourDigital] = useState("");
   const [minutesDigital, setMinutesDigital] = useState("");
   const [horaJudaica, setHoraJudaica] = useState("");
@@ -14,11 +16,11 @@ function ContextAlarm({ children }) {
       let date = new Date();
       let HH = date.getHours(),
         MM = date.getMinutes()
-      
+
       if (HH === 0) HH = 12;
       if (HH < 10) HH = `0${HH}`;
       if (MM < 10) MM = `0${MM}`;
-  
+
       setHourDigital(HH);
       setMinutesDigital(MM);
     } else {
@@ -34,23 +36,23 @@ function ContextAlarm({ children }) {
   const calculaHora = horaNormal => {
     let horaNova = 0
 
-    if (horaNormal >=0 && horaNormal<=6) {
-        horaNova = horaNormal + 6
+    if (horaNormal >= 0 && horaNormal <= 6) {
+      horaNova = horaNormal + 6
     } else if (horaNormal >= 7 && horaNormal <= 18) {
-        horaNormal = horaNormal - 6
+      horaNormal = horaNormal - 6
     } else {
-        horaNova = horaNormal - 18
+      horaNova = horaNormal - 18
     }
 
-    if (horaNormal>=7 && horaNormal<=18) {
-        return `hora ${extensoes[horaNova]} (diurna)`
+    if (horaNormal >= 7 && horaNormal <= 18) {
+      return `hora ${extensoes[horaNova]} (diurna)`
     } else {
-        return `hora ${extensoes[horaNova]} noturna`
+      return `hora ${extensoes[horaNova]} noturna`
     }
   }
 
   const calculaMinuto = minutoNormal => {
-    return `São ${parseInt(minutoNormal/5)} duodécimos`
+    return `São ${parseInt(minutoNormal / 5)} duodécimos`
   }
 
   return (
@@ -59,7 +61,11 @@ function ContextAlarm({ children }) {
         hourDigital,
         minutesDigital,
         horaJudaica,
-        setHoraVerificacao
+        setHoraVerificacao,
+        hourAnalog,
+        minutesAnalog,
+        setHourAnalog,
+        setMinutesAnalog
       }}
     >
       {children}
