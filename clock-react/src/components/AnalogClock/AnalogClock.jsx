@@ -28,8 +28,6 @@ function AnalogClock() {
   };
   // setInterval(clock, 1000);
 
-
-
   return (
     <div className="clock__circle">
       <span className="clock__twelve"></span>
