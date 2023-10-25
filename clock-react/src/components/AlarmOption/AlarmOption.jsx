@@ -7,30 +7,20 @@ import { AlarmContext } from "../context/ContextAlarm";
 import { useForm } from 'react-hook-form'
 
 function AlarmOption() {
-  const [hour, setHour] = useSelect("Hour");
-  const [minutes, setMinutes] = useSelect("Minutes");
+  const [hour, setHour] = useSelect("Horas");
+  const [minutes, setMinutes] = useSelect("Minutos");
   const [amPmOption, setAmPmOption] = useSelect("Am-Pm");
   const [test, setTest] = useSelect("Teste")
-  const { setAlarmTime, pauseAlarm, hasAlarm, setHasAlarm, setHourAnalog, setMinutesAnalog, setHourDigital,
-    setMinutesDigital } =
-    useContext(AlarmContext);
+  const { hasAlarm,setHourAnalog, setMinutesAnalog, setHourDigital, setMinutesDigital } = useContext(AlarmContext);
 
-  const setAlarm = () => {
-    if (hasAlarm) {
-      pauseAlarm();
-      setHasAlarm(false);
-      return;
-    }
-
-    if (
-      !hour.includes("Hour") &&
-      !minutes.includes("Minutes") &&
-      !amPmOption.includes("Am-Pm")
-    ) {
-      setHasAlarm(true);
-      setAlarmTime(`${hour}:${minutes} ${amPmOption}`);
-    }
-  };
+  // const setHorasDuodecimo = () => {
+  //   if (
+  //     !hour.includes("Horas") &&
+  //     !minutes.includes("Minutos")
+  //   ) {
+  //     setHoraVerificacao(`${hour}:${minutes}`);
+  //   }
+  // };
 
   const { register, handleSubmit, } = useForm();
 
@@ -89,7 +79,7 @@ function AlarmOption() {
           {hasAlarm ? "Clear Alarm" : "Set Alarm"}
         </button>
       </form>
-    </div>
+    </div >
   );
 }
 

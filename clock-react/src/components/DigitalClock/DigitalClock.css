@@ -7,14 +7,7 @@
 .clock__text-minutes {
   font-size: var(--biggest-font-size);
   font-weight: var(--font-medium);
-  color: var(--title-color);
-}
-
-.clock__text-ampm {
-  font-size: var(--tiny-font-size);
-  color: var(--title-color);
-  font-weight: var(--font-medium);
-  margin-left: var(--mb-0-25);
+  color: var(--white-color);
 }
 
 .clock__date {

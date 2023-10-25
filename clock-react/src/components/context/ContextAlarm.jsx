@@ -1,8 +1,4 @@
 import React, { createContext, useEffect, useState } from "react";
-import months from "../../data";
-import Sound from "../../mixkit-casino-win-alarm-and-coins-1990.mp3";
-
-const alarm = new Audio(Sound);
 export const AlarmContext = createContext();
 
 function ContextAlarm({ children }) {
@@ -48,15 +44,27 @@ function ContextAlarm({ children }) {
   //   }, 1000);
   // }, []);
 
-  if (alarmTime === `${hourDigital}:${minutesDigital} ${amPm}`) {
-    alarm.play();
-    alarm.loop = true;
-  }
+  // const calculaHora = horaNormal => {
+  //   let horaNova = 0
 
-  const pauseAlarm = () => {
-    alarm.pause();
-    setAlarmTime("");
-  };
+  //   if (horaNormal >=0 && horaNormal<=6) {
+  //       horaNova = horaNormal + 6
+  //   } else if (horaNormal >= 7 && horaNormal <= 18) {
+  //       horaNormal = horaNormal - 6
+  //   } else {
+  //       horaNova = horaNormal - 18
+  //   }
+
+  //   if (horaNormal>=7 && horaNormal<=18) {
+  //       return `hora ${extensoes[horaNova]} (diurna)`
+  //   } else {
+  //       return `hora ${extensoes[horaNova]} noturna`
+  //   }
+  // }
+
+  // const calculaMinuto = minutoNormal => {
+  //   return `São ${parseInt(minutoNormal/5)} duodécimos`
+  // }
 
   return (
     <AlarmContext.Provider
@@ -69,7 +77,7 @@ function ContextAlarm({ children }) {
         yearNow,
         alarmTime,
         setAlarmTime,
-        pauseAlarm,
+        // pauseAlarm,
         hasAlarm,
         setHasAlarm,
         setHourAnalog,

@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./AnalogClock.css";
-import { FcAlarmClock } from "react-icons/fc";
 import { AlarmContext } from "../context/ContextAlarm";
 
 function AnalogClock() {
@@ -33,7 +32,6 @@ function AnalogClock() {
 
   return (
     <div className="clock__circle">
-      <FcAlarmClock className={`alarm-icon ${hasAlarm && 'active'}`} />
       <span className="clock__twelve"></span>
       <span className="clock__three"></span>
       <span className="clock__six"></span>
@@ -42,7 +40,6 @@ function AnalogClock() {
       <div className="clock__rounder"></div>
       <div className="clock__hour" style={{ transform: hour }}></div>
       <div className="clock__minutes" style={{ transform: minutes }}></div>
-      <div className="clock__seconds" style={{ transform: seconds }}></div>
     </div>
   );
 }
