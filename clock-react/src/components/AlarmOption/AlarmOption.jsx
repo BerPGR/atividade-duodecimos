@@ -12,6 +12,15 @@ function AlarmOption() {
 
   const { setHoraVerificacao, setHourAnalog, setMinutesAnalog } = useContext(AlarmContext);
 
+  const setHorasDuodecimo = () => {
+    if (
+      !hour.includes("Horas") &&
+      !minutes.includes("Minutos")
+    ) {
+      setHoraVerificacao(`${hour}:${minutes}`);
+    }
+  };
+
   // formulario
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -23,17 +32,6 @@ function AlarmOption() {
     setMinutesAnalog(data.minutos)
   }
 
-
-
-
-  const setHorasDuodecimo = () => {
-    if (
-      !hour.includes("Horas") &&
-      !minutes.includes("Minutos")
-    ) {
-      setHoraVerificacao(`${hour}:${minutes}`);
-    }
-  };
 
   return (
     <div className="option-Container">
@@ -61,81 +59,10 @@ function AlarmOption() {
         <button
           onClick={setHorasDuodecimo}
           className={`setAlarm-btn`}
-        >
-          Selecionar Hora
-
-  const [amPmOption, setAmPmOption] = useSelect("Am-Pm");
-  const [test, setTest] = useSelect("Teste")
-  const { hasAlarm,setHourAnalog, setMinutesAnalog, setHourDigital, setMinutesDigital } = useContext(AlarmContext);
-
-  // const setHorasDuodecimo = () => {
-  //   if (
-  //     !hour.includes("Horas") &&
-  //     !minutes.includes("Minutos")
-  //   ) {
-  //     setHoraVerificacao(`${hour}:${minutes}`);
-  //   }
-  // };
-
-  const { register, handleSubmit, } = useForm();
-
-  const onSubmit = (data) => {
-
-    setHourAnalog("")
-    setMinutesAnalog("")
-    setHourAnalog(data.hora)
-    setMinutesAnalog(data.minuto)
-
-    setHourDigital("")
-    setMinutesDigital("")
-    setHourDigital(data.hora)
-    setMinutesDigital(data.minuto)
-
-
-    console.log(data)
-  }
-
-  return (
-    <div className="option-Container">
-      <form onSubmit={handleSubmit(onSubmit)} className={`wrapper-option ${hasAlarm && "disable"}`} style={{ display: "flex", flexDirection: 'column' }}>
-        <div style={{ display: 'flex', gap: '1rem' }}>
-          <select {...register("hora")}>
-            <option disabled value="Hour">
-              Hour
-            </option>
-            {hourNumber.map((hour, index) => (
-              <option key={index} value={hour}>
-                {hour}
-              </option>
-            ))}
-          </select>
-          <select {...register("minuto")}>
-            <option disabled value="Minutes">
-              Minutes
-            </option>
-            {minutesNumber.map((minutes, index) => (
-              <option key={index} value={minutes}>
-                {minutes}
-              </option>
-            ))}
-          </select>
-        </div>
-        {/* <select {...setAmPmOption}>
-          <option disabled value="Am-Pm">
-            Am/Pm
-          </option>
-          <option value="AM">Am</option>
-          <option value="PM">Pm</option>
-        </select> */}
-        <button
-          type="submit"
-          className={`setAlarm-btn ${hasAlarm && "play"}`}
-        >
-          {hasAlarm ? "Clear Alarm" : "Set Alarm"}
-        </button>
+        ></button>
       </form>
-    </div >
-  );
-}
+    </div>
+
+)}
 
 export default AlarmOption;

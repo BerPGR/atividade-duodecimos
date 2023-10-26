@@ -2,16 +2,14 @@
   position: relative;
   width: 260px;
   height: 260px;
-  box-shadow: -6px -6px 6px var(--white-color),
-    6px 6px 6px hsla(var(--hue-color), 30%, 86%, 1),
-    inset 6px 6px 6px hsla(var(--hue-color), 30%, 86%, 1),
-    inset -6px -6px 6px var(--white-color);
   border-radius: 50%;
   justify-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.4s;
+
+  background-color: white;
 }
 
 .alarm-icon {
@@ -37,7 +35,7 @@
   position: absolute;
   width: 1.5rem;
   height: 1px;
-  background-color: var(--white-color);
+  background-color: var(--body-color);
 }
 
 .clock__twelve,
@@ -68,9 +66,9 @@
 .clock__rounder {
   width: 0.75rem;
   height: 0.75rem;
-  background-color: var(--first-color);
+  background-color: #06BA63;
   border-radius: 50%;
-  border: 2px solid var(--body-color);
+  border: 2px solid var(#06BA63);
   z-index: var(--z-tooltip);
 }
 
@@ -90,7 +88,7 @@
 .clock__hour::before {
   content: "";
   position: absolute;
-  background-color: var(--white-color);
+  background-color: var(--body-color);
   width: 0.25rem;
   height: 5.5rem;
   border-radius: 0.75rem;
@@ -105,7 +103,7 @@
 .clock__minutes::before {
   content: "";
   position: absolute;
-  background-color: var(--white-color);
+  background-color: var(--body-color);
   width: 0.25rem;
   height: 6.5rem;
   border-radius: 0.75rem;
