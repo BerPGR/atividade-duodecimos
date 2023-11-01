@@ -1,5 +1,3 @@
-# Inserir créditos aqui (porque eu não sei trabalhar com créditos). Obrigado. :)
-
 import datetime
 
 horasExtenso = ['', 'primeira', 'segunda', 'terceira', 'quarta', 'quinta', 'sexta', 'sétima', 'oitava', 'nona', 'décima', 'undécima', 'duodécima']
