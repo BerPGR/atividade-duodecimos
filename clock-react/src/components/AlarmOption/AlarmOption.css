@@ -10,6 +10,8 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .disable {
@@ -24,11 +26,8 @@
   border: none;
   outline: none;
   background-color: var(--white-color);
-  box-shadow: -3px -3px 5px var(--white-color),
-    3px 3px 5px hsla(var(--hue-color), 30%, 86%, 1),
-    inset 3px 3px 5px hsla(var(--hue-color), 30%, 86%, 1),
-    inset -3px -3px 5px var(--white-color);
   cursor: pointer;
+  width: 150px;
 }
 
 select::-webkit-scrollbar {
@@ -41,7 +40,7 @@ select::-webkit-scrollbar-thumb {
   border-right: 2px solid #ffffff;
 }
 
-select option{
+select option {
   display: block;
   background: var(--first-color);
   color: #fff;
@@ -51,13 +50,19 @@ select option{
   width: 320px;
   margin-top: 30px;
   height: 40px;
-  outline: none;
+  border: none;
   border-radius: 5px;
   color: #fff;
   font-size: 16px;
   letter-spacing: 1px;
   background-color: #06BA63;
   cursor: pointer;
+  transition: .4s ease-in-out;
+}
+
+.setAlarm-btn:hover{
+  background-color: #2de48b;
+  scale: 101%;
 }
 
 .play {

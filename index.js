@@ -7,7 +7,7 @@ Walter Moura e Silva Junior
 
 */
 
-var extensoes = ["", "primeira", "segunda", "terceira", "quarta", "quinta", "sexta", "sétima", "oitava", "nona", "décima", "undécima", "duodécima"]
+const extensoes = ["", "primeira", "segunda", "terceira", "quarta", "quinta", "sexta", "sétima", "oitava", "nona", "décima", "undécima", "duodécima"]
 const tempoAtual = new Date()
 const horasJudaica = calculaHoras(tempoAtual.getHours())
 const minutosJudaico = calculaMinutos(tempoAtual.getMinutes())
