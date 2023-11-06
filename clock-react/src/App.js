@@ -1,23 +1,21 @@
+/* Quiz Hora Duodécimo */
+
 import './App.css';
-import AlarmOption from './components/AlarmOption/AlarmOption';
-import AnalogClock from './components/AnalogClock/AnalogClock';
-import ContextAlarm from './components/context/ContextAlarm';
-import DigitalClock from './components/DigitalClock/DigitalClock';
+import Header from './components/Header/Header';
+import SubmitAnswer from './components/SubmitAnswer';
+
 
 function App() {
 
   return (
-    <section className="clock container">
-      <div className="clock__container grid">
-        <div className="clock__content grid">
-          <ContextAlarm>
-            <AnalogClock />
-            <DigitalClock />
-            <AlarmOption />
-          </ContextAlarm>
-        </div>
+    <main className='container'>
+      <Header />
+
+      <div>
+
       </div>
-    </section>
+
+    </main>
   );
 }
 
