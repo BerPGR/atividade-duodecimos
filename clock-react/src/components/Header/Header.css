@@ -9,4 +9,15 @@
     color: #06BA63;
     width: 2rem;
     height: 2rem;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+}
+
+.menu-icon:hover{
+    color: #6ae7ab;
+    scale: 101%;
+}
+
+.menu-container {
+    width: 90vw;
 }
