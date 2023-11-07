@@ -68,11 +68,6 @@ function ContextAlarm({ children }) {
         minutesAnalog,
         setHourAnalog,
         setMinutesAnalog,
-        setHourAnalog,
-        setMinutesAnalog,
-        hourAnalog,
-        minutesAnalog,
-        setHourDigital,
         setMinutesDigital
       }}
     >

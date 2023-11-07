@@ -1,21 +1,20 @@
+// Quiz.js
 import React from 'react'
 import AlarmOption from '../AlarmOption/AlarmOption'
-
-import { AlarmContext } from "../context/ContextAlarm";
-
+import AnalogClock from '../AnalogClock/AnalogClock'
+import ContextAlarm from "../context/ContextAlarm";
 
 const Quiz = () => {
 
   return (
-    <AlarmContext.Provider>
+    <div>
       <h1>Question</h1>
-
-      <form>
+      <ContextAlarm>
+        <AnalogClock />
         <AlarmOption />
-      </form>
-
-    </AlarmContext.Provider>
+      </ContextAlarm>
+    </div>
   )
 }
 
-export default Quiz
+export default Quiz;
