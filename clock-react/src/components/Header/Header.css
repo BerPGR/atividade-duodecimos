@@ -13,11 +13,33 @@
     transition: .4s ease-in-out;
 }
 
-.menu-icon:hover{
+.menu-icon:hover {
     color: #6ae7ab;
     scale: 101%;
 }
 
 .menu-container {
     width: 90vw;
+}
+
+.menu-desktop {
+    display: none;
+}
+
+
+@media screen and (min-width: 968px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .menu-desktop {
+        display: flex;
+        gap: 1rem;
+    }
+
+
+    a:hover {
+        text-decoration: underline;
+        color: white;
+    }
 }

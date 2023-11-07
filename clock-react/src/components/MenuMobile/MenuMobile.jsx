@@ -13,9 +13,9 @@ const MenuMobile = ({ open, handleMenu }) => {
                     <AiOutlineCloseCircle onClick={handleMenu} className='icon' />
                 </div>
                 <div className='links-container'>
-                <a href='#'>Historia</a>
-                <a href='#'>Historia</a>
-                <a href='#'>Historia</a>
+                    <a onClick={handleMenu} href='#historia'>História</a>
+                    <a onClick={handleMenu} href='#calcular'>Como Calcular</a>
+                    <a onClick={handleMenu} href='#quiz'>Play!</a>
                 </div>
             </Box>
         </Drawer>

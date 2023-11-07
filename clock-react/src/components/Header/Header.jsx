@@ -24,6 +24,11 @@ const Header = () => {
         <header className='container-header'>
             <img src='./logo.png' width={100} />
             <HiOutlineMenuAlt3 className='menu-icon' onClick={handleMenu} />
+            <div className='menu-desktop'>
+                <a href='#historia'>História</a>
+                <a href='#calcular'>Como Calcular</a>
+                <a href='#quiz'>Play!</a>
+            </div>
         </header>
     )
 }
