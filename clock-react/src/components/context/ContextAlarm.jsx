@@ -9,6 +9,7 @@ function ContextAlarm({ children }) {
   const [minutesAnalog, setMinutesAnalog] = useState("");
   const [hourDigital, setHourDigital] = useState("");
   const [minutesDigital, setMinutesDigital] = useState("");
+  
   const [horaJudaica, setHoraJudaica] = useState("");
   const [horaVerificacao, setHoraVerificacao] = useState("");
 

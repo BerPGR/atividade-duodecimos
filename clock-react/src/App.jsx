@@ -36,7 +36,7 @@ function App() {
 
         <section id='quiz'>
           <img src='./logo.png' className='image' />
-          <button className='btn-primary'>Play <TbExternalLink /></button>
+          <a href="/quiz" className='btn-primary'>Play <TbExternalLink /></a>
         </section>
       </main>
 

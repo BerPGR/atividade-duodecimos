@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "./AlarmOption.css";
 import { minutesNumber, hourNumber } from "../../func";
 import useSelect from "../../hook/useSelect";
-import { AlarmContext } from "../context/ContextAlarm";
 
 import { useForm } from 'react-hook-form'
 
@@ -10,7 +9,7 @@ function AlarmOption() {
   const [hour, setHour] = useSelect("Horas");
   const [minutes, setMinutes] = useSelect("Minutos");
 
-  const { setHoraVerificacao, setHourAnalog, setMinutesAnalog } = useContext(AlarmContext);
+  const { setHourAnalog, setMinutesAnalog, setHoraVerificacao } = useContext(AlarmContext);
 
   const setHorasDuodecimo = () => {
     if (
@@ -63,6 +62,7 @@ function AlarmOption() {
       </form>
     </div>
 
-)}
+  )
+}
 
 export default AlarmOption;
