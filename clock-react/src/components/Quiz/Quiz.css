@@ -2,11 +2,6 @@
     --primary-color: #06BA63;
 }
 
-.quiz-container {
-    flex-direction: r;
-    margin-top: 5rem;
-}
-
 .score {
     font-size: 1.5rem;
     font-weight: bold;

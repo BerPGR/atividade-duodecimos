@@ -6,6 +6,8 @@ import { AlarmContext } from "../context/ContextAlarm";
 
 import './Quiz.css'
 
+
+
 const QuizScreen = () => {
     const {
         handleNextQuestion,
@@ -17,7 +19,7 @@ const QuizScreen = () => {
 
     const questionsLength = questions.length
 
- 
+
     // if (questionNumber > questionsLength - 1) {
     //     alert("Finalizado")
     // }

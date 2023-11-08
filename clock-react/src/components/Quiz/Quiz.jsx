@@ -7,10 +7,12 @@ import ContextAlarm from "../context/ContextAlarm";
 import { AlarmContext } from "../context/ContextAlarm";
 import './Quiz.css'
 import QuizScreen from './QuizScreen';
+import Header from '../Header/Header';
 
 const Quiz = () => {
   return (
-    <div className='container quiz-container'>
+    <div className='container'>
+      <Header />
       <ContextAlarm>
         <QuizScreen />
       </ContextAlarm>

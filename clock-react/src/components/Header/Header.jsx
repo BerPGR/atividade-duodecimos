@@ -2,13 +2,16 @@ import { useState } from 'react'
 import './Header.css'
 
 // icons
-import { HiOutlineMenuAlt3 } from 'react-icons/hi';
+import { HiHome, HiOutlineMenuAlt3 } from 'react-icons/hi';
 import MenuMobile from '../MenuMobile/MenuMobile';
+
+import { useLocation } from 'react-router-dom';
+
 
 
 const Header = () => {
+    const location = useLocation();
     const [openMenu, setOpenMenu] = useState(false)
-    console.log(openMenu)
     const handleMenu = () => {
         setOpenMenu(prev => !prev)
     }
@@ -20,15 +23,26 @@ const Header = () => {
         )
     }
 
+
     return (
         <header className='container-header'>
             <img src='./logo.png' width={100} />
-            <HiOutlineMenuAlt3 className='menu-icon' onClick={handleMenu} />
-            <div className='menu-desktop'>
-                <a href='#historia'>História</a>
-                <a href='#calcular'>Como Calcular</a>
-                <a href='#quiz'>Play!</a>
-            </div>
+
+            {location.pathname != '/quiz' && <HiOutlineMenuAlt3 className='menu-icon' onClick={handleMenu} />}
+
+
+            {location.pathname == '/quiz' ?
+                <a href='/'>
+                    <HiHome size={20} />
+                </a>
+                :
+                <div className='menu-desktop'>
+                    <a href='#historia'>História</a>
+                    <a href='#calcular'>Como Calcular</a>
+                    <a href='#quiz'>Play!</a>
+                </div>
+            }
+
         </header>
     )
 }
