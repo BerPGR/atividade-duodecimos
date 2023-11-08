@@ -4,12 +4,55 @@ export const AlarmContext = createContext();
 const extensoes = ["", "primeira", "segunda", "terceira", "quarta", "quinta", "sexta", "sétima", "oitava", "nona", "décima", "undécima", "duodécima"]
 
 
+const questions = [
+  {
+    question: "Digite 9 horas da manhã",
+    answer: { hora: 9, minutos: 0 }
+  },
+  {
+    question: "Digite 4 horas da tarde",
+    answer: { hora: 16, minutos: 0 }
+  },
+  {
+    question: "Digite 7 horas da manhã",
+    answer: { hora: 7, minutos: 0 }
+  },
+  {
+    question: "Digite 1 hora da tarde",
+    answer: { hora: 13, minutos: 0 }
+  },
+  {
+    question: "Digite 11 horas da noite",
+    answer: { hora: 23, minutos: 0 }
+  },
+  {
+    question: "Digite 6 horas da manhã",
+    answer: { hora: 6, minutos: 0 }
+  },
+  {
+    question: "Digite 5 horas da tarde",
+    answer: { hora: 17, minutos: 0 }
+  },
+  {
+    question: "Digite 3 horas da manhã",
+    answer: { hora: 3, minutos: 0 }
+  },
+  {
+    question: "Digite 8 horas da noite",
+    answer: { hora: 20, minutos: 0 }
+  },
+  {
+    question: "Digite 12 horas da noite",
+    answer: { hora: 0, minutos: 0 }
+  }
+];
+
 function ContextAlarm({ children }) {
   const [hourAnalog, setHourAnalog] = useState("");
   const [minutesAnalog, setMinutesAnalog] = useState("");
   const [hourDigital, setHourDigital] = useState("");
   const [minutesDigital, setMinutesDigital] = useState("");
-  
+
   const [horaJudaica, setHoraJudaica] = useState("");
   const [horaVerificacao, setHoraVerificacao] = useState("");
 
@@ -59,6 +102,45 @@ function ContextAlarm({ children }) {
     }
   }
 
+  // quiz
+  const [questionNumber, setQuestionNumber] = useState(0);
+  const handleNextQuestion = () => {
+    if (questionNumber < questions.length - 1) {
+      setQuestionNumber(prev => prev + 1);
+    } else {
+      setQuestionNumber(questions.length - 1);
+    }
+  };
+
+  const [userAnswer, setUserAnswer] = useState({
+    hora: 0,
+    minutos: 0
+  })
+
+
+  const currentQuestion = questions[questionNumber]
+  const handleQuiz = () => {
+    if (userAnswer.hora === 0 && userAnswer.minutos === 0) {
+      return
+    }
+    const correctAnswer = currentQuestion.answer
+    console.log(correctAnswer, userAnswer)
+    if (correctAnswer.hora == userAnswer.hora && correctAnswer.minutos == userAnswer.minutos) {
+      alert("Hora está correta")
+      handleScore()
+    } else {
+      alert("Hora está errada")
+    }
+    // handleNextQuestion()
+
+  }
+
+  const [score, setScore] = useState(0);
+  const handleScore = () => {
+    setScore(prev => prev + 1)
+  }
+
+
   return (
     <AlarmContext.Provider
       value={{
@@ -68,7 +150,17 @@ function ContextAlarm({ children }) {
         minutesAnalog,
         setHourAnalog,
         setMinutesAnalog,
-        setMinutesDigital
+        setMinutesDigital,
+        questions,
+        handleNextQuestion,
+        questionNumber,
+        userAnswer,
+        setUserAnswer,
+        currentQuestion,
+        handleQuiz,
+        handleScore,
+        score,
+
       }}
     >
       {children}
