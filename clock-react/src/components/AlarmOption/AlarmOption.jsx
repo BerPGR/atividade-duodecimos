@@ -14,14 +14,7 @@ function AlarmOption() {
     setHourAnalog,
     setMinutesAnalog,
     setHoraVerificacao,
-    questions,
-    questionNumber,
-    userAnswer,
     setUserAnswer,
-    currentQuestion,
-    handleQuiz,
-    handleScore,
-    score
   } = useContext(AlarmContext);
 
   const [hour, setHour] = useSelect("Horas");
@@ -55,8 +48,6 @@ function AlarmOption() {
 
   return (
     <div className="option-Container">
-      <p>{questions[questionNumber].question}</p>
-
       <form onSubmit={handleSubmit(onSubmit)} className={`wrapper-option form-container`}>
         <select {...register("horas")}>
           <option disabled value="Horas">
@@ -82,8 +73,6 @@ function AlarmOption() {
           Definir Hora
         </button>
       </form>
-
-      <p>Score: {score}</p>
     </div>
   );
 }

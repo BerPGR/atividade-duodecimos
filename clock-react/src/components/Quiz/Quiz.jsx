@@ -11,7 +11,6 @@ import QuizScreen from './QuizScreen';
 const Quiz = () => {
   return (
     <div className='container quiz-container'>
-      <h1>Question</h1>
       <ContextAlarm>
         <QuizScreen />
       </ContextAlarm>
