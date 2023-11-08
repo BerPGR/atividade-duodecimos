@@ -1,5 +1,5 @@
 // AlarmOption.js
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./AlarmOption.css";
 import { minutesNumber, hourNumber } from "../../func";
 import useSelect from "../../hook/useSelect";
@@ -8,31 +8,67 @@ import { AlarmContext } from "../context/ContextAlarm";
 
 const questions = [
   {
-    question: "Digite 3 horas da Tarde",
-    answer: { hora: 15, minutos: 0 }
+    question: "Digite 9 horas da manhã",
+    answer: { hora: 9, minutos: 0 }
   },
   {
-    question: "Digite 10 horas da noite",
-    answer: { hora: 22, minutos: 0 }
+    question: "Digite 4 horas da tarde",
+    answer: { hora: 16, minutos: 0 }
   },
   {
-    question: "Digite 2 horas da manha",
-    answer: { hora: 2, minutos: 0 }
+    question: "Digite 7 horas da manhã",
+    answer: { hora: 7, minutos: 0 }
   },
-]
+  {
+    question: "Digite 1 hora da tarde",
+    answer: { hora: 13, minutos: 0 }
+  },
+  {
+    question: "Digite 11 horas da noite",
+    answer: { hora: 23, minutos: 0 }
+  },
+  {
+    question: "Digite 6 horas da manhã",
+    answer: { hora: 6, minutos: 0 }
+  },
+  {
+    question: "Digite 5 horas da tarde",
+    answer: { hora: 17, minutos: 0 }
+  },
+  {
+    question: "Digite 3 horas da manhã",
+    answer: { hora: 3, minutos: 0 }
+  },
+  {
+    question: "Digite 8 horas da noite",
+    answer: { hora: 20, minutos: 0 }
+  },
+  {
+    question: "Digite 12 horas da noite",
+    answer: { hora: 0, minutos: 0 }
+  }
+];
+
 
 function AlarmOption() {
   const [questionNumber, setQuestionNumber] = useState(0);
   const {
+    hourAnalog,
     setHourAnalog,
+    minutesAnalog,
     setMinutesAnalog,
     setHoraVerificacao
   } = useContext(AlarmContext);
 
-  console.log(setHourAnalog)
-
   const [hour, setHour] = useSelect("Horas");
   const [minutes, setMinutes] = useSelect("Minutos");
+
+  // user answer
+  const [userAnswer, setUserAnswer] = useState({
+    hora: 0,
+    minutos: 0
+  })
+  const [score, setScore] = useState(0);
 
   const setHorasDuodecimo = () => {
     if (!hour.includes("Horas") && !minutes.includes("Minutos")) {
@@ -43,13 +79,37 @@ function AlarmOption() {
   // Formulario
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     setHourAnalog(data.horas);
     setMinutesAnalog(data.minutos);
-    console.log("ANTES", questionNumber)
-    handleNextQuestion()
-    console.log("DEpois", questionNumber)
+    setUserAnswer(prev => {
+      return { ...prev, hora: Number(data.horas), minutos: Number(data.minutos) }
+    })
   };
+
+  useEffect(() => {
+    handleQuiz()
+  }, [userAnswer])
+
+  const currentQuestion = questions[questionNumber]
+  const handleQuiz = () => {
+    if (userAnswer.hora === 0 && userAnswer.minutos === 0) {
+      return
+    }
+    const correctAnswer = currentQuestion.answer
+    console.log(correctAnswer, userAnswer)
+    if (correctAnswer.hora == userAnswer.hora && correctAnswer.minutos == userAnswer.minutos) {
+      alert("Hora está correta")
+      handleScore()
+    } else {
+      alert("Hora está errada")
+    }
+    handleNextQuestion()
+
+  }
+
+  const handleScore = () => {
+    setScore(prev => prev + 1)
+  }
 
   const handleNextQuestion = () => {
     if (questionNumber < questions.length - 1) {
@@ -88,6 +148,8 @@ function AlarmOption() {
           Definir Hora
         </button>
       </form>
+
+      <p>Score: {score}</p>
     </div>
   );
 }
