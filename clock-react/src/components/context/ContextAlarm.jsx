@@ -108,8 +108,7 @@ function ContextAlarm({ children }) {
     if (questionNumber < questions.length - 1) {
       setQuestionNumber(prev => prev + 1);
     } else {
-      alert("Finalizado") // modal aqui
-      setQuestionNumber(questions.length - 1);
+      setQuestionNumber(questions.length + 1);
     }
   };
 
@@ -122,6 +121,7 @@ function ContextAlarm({ children }) {
   const currentQuestion = questions[questionNumber]
   const handleQuiz = () => {
     if (userAnswer.hora === 0 && userAnswer.minutos === 0) {
+      alert("Defini primeira a hora.")
       return
     }
 
@@ -131,18 +131,17 @@ function ContextAlarm({ children }) {
       setOpenModal(prev => {
         return { ...prev, open: true, correctModal: true, wrongModal: false }
       })
-      // alert("Hora está correta")
-      console.log("CORRETO")
       handleScore()
     } else {
       setOpenModal(prev => {
         return { ...prev, open: true, correctModal: false, wrongModal: true }
       })
-      // alert("Hora está errada")
-      console.log("CORRETO")
-    }
-    // handleNextQuestion()
 
+      // reset
+      setUserAnswer(prev => {
+        return { ...prev, hora: 0, minutos: 0 }
+      })
+    }
   }
 
   // MODALS
@@ -156,6 +155,14 @@ function ContextAlarm({ children }) {
   const [score, setScore] = useState(0);
   const handleScore = () => {
     setScore(prev => prev + 1)
+  }
+
+  // reset quiz
+  const resetQuiz = () => {
+    setUserAnswer({ hora: 0, minutos: 0 })
+    setScore(0)
+    setOpenModal({ open: false, correctModal: false, wrongModal: false })
+    setQuestionNumber(0)
   }
 
 
@@ -180,7 +187,7 @@ function ContextAlarm({ children }) {
         handleCloseModal,
         handleScore,
         score,
-
+        resetQuiz
       }}
     >
       {children}

@@ -36,13 +36,15 @@ function AlarmOption() {
 
 
   // Formulario
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
     setHourAnalog(data.horas);
     setMinutesAnalog(data.minutos);
     setUserAnswer(prev => {
       return { ...prev, hora: Number(data.horas), minutos: Number(data.minutos) }
     })
+
+    reset()
   };
 
 

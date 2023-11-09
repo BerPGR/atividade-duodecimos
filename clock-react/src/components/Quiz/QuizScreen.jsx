@@ -17,22 +17,41 @@ const QuizScreen = () => {
         score,
         questionNumber,
         openModal,
-        handleCloseModal
+        handleCloseModal,
+        resetQuiz
     } = useContext(AlarmContext);
 
     const questionsLength = questions.length
 
     return (
         <div className='container'>
-            <h1>Question {questionNumber + 1}/{questionsLength}</h1>
-            <p>Score: <span className='score'>{score}</span></p>
-            <p>{questions[questionNumber].question}</p>
-            <AlarmOption />
-            <AnalogClock />
-            <button className='setAlarm-btn' onClick={handleQuiz}>Responder</button>
-            <button className='setAlarm-btn' onClick={handleNextQuestion}>Próxima</button>
+            {questionNumber < questionsLength
+                ?
+                <>
+                    <div className='stats-container'>
+                        <h1>Question {questionNumber + 1}/{questionsLength}</h1>
+                        <p>Score: <span className='score'>{score}</span></p>
+                        <p className='question'>{questions[questionNumber].question}</p>
+                    </div>
 
-            {openModal.open === true && <CorrectModal handleClose={handleCloseModal} open={openModal}  />}
+                    <div className='clock-container'>
+                        <AlarmOption />
+                        <AnalogClock />
+                    </div>
+
+                    <button className='setAlarm-btn' onClick={handleQuiz}>Responder</button>
+                    <button className='setAlarm-btn' onClick={handleNextQuestion}>Próxima</button>
+
+                    {openModal.open === true && <CorrectModal handleClose={handleCloseModal} open={openModal} />}
+                </>
+                :
+                <div className="stats-container">
+                    <h1>FINALIZADO</h1>
+                    <p>Seu Score Final: <span className='score'>{score}</span></p>
+                    <button className="btn-primary" style={{}} onClick={resetQuiz}>Jogar Novamente</button>
+                    <a href='/' className="btn-primary" style={{ fontSize: '1rem' }}>Voltar ao Início</a>
+                </div>
+            }
         </div>
     )
 }
