@@ -128,15 +128,31 @@ function ContextAlarm({ children }) {
     const correctAnswer = currentQuestion.answer
     console.log(correctAnswer, userAnswer)
     if (correctAnswer.hora == userAnswer.hora && correctAnswer.minutos == userAnswer.minutos) {
-      alert("Hora está correta")
+      setOpenModal(prev => {
+        return { ...prev, open: true, correctModal: true, wrongModal: false }
+      })
+      // alert("Hora está correta")
+      console.log("CORRETO")
       handleScore()
     } else {
-      alert("Hora está errada")
+      setOpenModal(prev => {
+        return { ...prev, open: true, correctModal: false, wrongModal: true }
+      })
+      // alert("Hora está errada")
+      console.log("CORRETO")
     }
     // handleNextQuestion()
 
   }
 
+  // MODALS
+  const [openModal, setOpenModal] = useState({ open: false, correctModal: false, wrongModal: false });
+
+  const handleCloseModal = () => setOpenModal((prev) => {
+    return { ...prev, open: false, correctModal: false, wrongModal: false }
+  });
+
+  // SCORE
   const [score, setScore] = useState(0);
   const handleScore = () => {
     setScore(prev => prev + 1)
@@ -160,6 +176,8 @@ function ContextAlarm({ children }) {
         setUserAnswer,
         currentQuestion,
         handleQuiz,
+        openModal,
+        handleCloseModal,
         handleScore,
         score,
 

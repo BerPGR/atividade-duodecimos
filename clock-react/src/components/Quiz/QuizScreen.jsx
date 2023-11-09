@@ -1,10 +1,11 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import AlarmOption from '../AlarmOption/AlarmOption'
 import AnalogClock from '../AnalogClock/AnalogClock'
 
 import { AlarmContext } from "../context/ContextAlarm";
 
 import './Quiz.css'
+import CorrectModal from '../ModalsQuiz/ModalFeedback';
 
 
 
@@ -14,15 +15,12 @@ const QuizScreen = () => {
         handleQuiz,
         questions,
         score,
-        questionNumber
+        questionNumber,
+        openModal,
+        handleCloseModal
     } = useContext(AlarmContext);
 
     const questionsLength = questions.length
-
-
-    // if (questionNumber > questionsLength - 1) {
-    //     alert("Finalizado")
-    // }
 
     return (
         <div className='container'>
@@ -33,6 +31,8 @@ const QuizScreen = () => {
             <AnalogClock />
             <button className='setAlarm-btn' onClick={handleQuiz}>Responder</button>
             <button className='setAlarm-btn' onClick={handleNextQuestion}>Próxima</button>
+
+            {openModal.open === true && <CorrectModal handleClose={handleCloseModal} open={openModal}  />}
         </div>
     )
 }
