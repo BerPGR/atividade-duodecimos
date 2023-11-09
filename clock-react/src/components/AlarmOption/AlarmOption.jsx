@@ -51,6 +51,7 @@ function AlarmOption() {
   return (
     <div className="option-Container">
       <form onSubmit={handleSubmit(onSubmit)} className={`wrapper-option form-container`}>
+        <label>Hora</label>
         <select {...register("horas")}>
           <option disabled value="Horas">
             Horas
@@ -61,6 +62,8 @@ function AlarmOption() {
             </option>
           ))}
         </select>
+
+        <label>Minutos</label>
         <select {...register("minutos")}>
           <option disabled value="Minutos">
             Minutos

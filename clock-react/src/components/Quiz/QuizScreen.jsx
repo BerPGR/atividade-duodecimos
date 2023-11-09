@@ -27,7 +27,7 @@ const QuizScreen = () => {
         <div className='container'>
             {questionNumber < questionsLength
                 ?
-                <>
+                <div className='quiz-container'>
                     <div className='stats-container'>
                         <h1>Question {questionNumber + 1}/{questionsLength}</h1>
                         <p>Score: <span className='score'>{score}</span></p>
@@ -43,7 +43,7 @@ const QuizScreen = () => {
                     <button className='setAlarm-btn' onClick={handleNextQuestion}>Próxima</button>
 
                     {openModal.open === true && <CorrectModal handleClose={handleCloseModal} open={openModal} />}
-                </>
+                </div>
                 :
                 <div className="stats-container">
                     <h1>FINALIZADO</h1>

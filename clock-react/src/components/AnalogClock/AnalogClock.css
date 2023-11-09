@@ -1,7 +1,7 @@
 .clock__circle {
   position: relative;
-  width: 260px;
-  height: 260px;
+  min-width: 260px;
+  min-height: 260px;
   border-radius: 50%;
   justify-self: center;
   display: flex;

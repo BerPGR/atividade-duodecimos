@@ -46,6 +46,10 @@ select option {
   color: #fff;
 }
 
+label{
+  color: white;
+}
+
 .setAlarm-btn {
   width: 100%;
   margin-top: 30px;
