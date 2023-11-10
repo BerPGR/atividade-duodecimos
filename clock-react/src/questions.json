@@ -1,0 +1,54 @@
+{
+    "questoes": [
+      {
+        "id": 1,
+        "descricao": "8 duodécimos da hora quarta noturna",
+        "resposta": "22:40"
+      },
+      {
+        "id": 2,
+        "descricao": "2 duodécimos da hora terceira",
+        "resposta": "09:10"
+      },
+      {
+        "id": 3,
+        "descricao": "11 duodécimos da hora décima noturna",
+        "resposta": "04:55"
+      },
+      {
+        "id": 4,
+        "descricao": "6 duodécimos da hora décima",
+        "resposta": "16:30"
+      },
+      {
+        "id": 5,
+        "descricao": "9 duodécimos da hora primeira",
+        "resposta": "07:45"
+      },
+      {
+        "id": 6,
+        "descricao": "4 duodécimos da hora segunda",
+        "resposta": "08:20"
+      },
+      {
+        "id": 7,
+        "descricao": "10 duodécimos",
+        "resposta": "14:00"
+      },
+      {
+        "id": 8,
+        "descricao": "3 duodécimos da hora décima",
+        "resposta": "16:15"
+      },
+      {
+        "id": 9,
+        "descricao": "2 duodécimos da hora nona noturna",
+        "resposta": "03:10"
+      },
+      {
+        "id": 10,
+        "descricao": "7 duodécimos da hora primeira noturna",
+        "resposta": "19:35"
+      }
+    ]
+  }

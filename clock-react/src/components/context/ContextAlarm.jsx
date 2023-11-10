@@ -1,23 +1,62 @@
 import React, { createContext, useEffect, useState } from "react";
 export const AlarmContext = createContext();
 
+const extensoes = ["", "primeira", "segunda", "terceira", "quarta", "quinta", "sexta", "sétima", "oitava", "nona", "décima", "undécima", "duodécima"]
+
+
+const questions = [
+  {
+      question: "Digite 9 duodécimos da hora terceira",
+      answer: { hora: 9, minutos: 9 }
+  },
+  {
+      question: "Digite 4 duodécimos da hora décima",
+      answer: { hora: 16, minutos: 4 }
+  },
+  {
+      question: "Digite a hora undécima noturna",
+      answer: { hora: 5, minutos: 0 }
+  },
+  {
+      question: "Digite a hora sétima",
+      answer: { hora: 13, minutos: 0 }
+  },
+  {
+      question: "Digite a hora quinta noturna",
+      answer: { hora: 23, minutos: 0 }
+  },
+  {
+      question: "Digite a hora duodécima noturna",
+      answer: { hora: 6, minutos: 0 }
+  },
+  {
+      question: "Digite 5 doudécimos da hora undécima",
+      answer: { hora: 17, minutos: 5 }
+  },
+  {
+      question: "Digite a hora nona noturna",
+      answer: { hora: 3, minutos: 0 }
+  },
+  {
+      question: "Digite 8 duodécimos da hora segunda noturna",
+      answer: { hora: 20, minutos: 8 }
+  },
+  {
+      question: "Digite a hora sexta noturna",
+      answer: { hora: 0, minutos: 0 }
+  }
+];
+
 function ContextAlarm({ children }) {
   const [hourAnalog, setHourAnalog] = useState("");
   const [minutesAnalog, setMinutesAnalog] = useState("");
   const [hourDigital, setHourDigital] = useState("");
   const [minutesDigital, setMinutesDigital] = useState("");
-  const [hourAnalog, setHourAnalog] = useState("");
-  const [minutesAnalog, setMinutesAnalog] = useState("");
-  const [amPm, setAmPm] = useState("");
-  const [dayNow, setDayNow] = useState("");
-  const [monthNow, setMonthNow] = useState("");
-  const [yearNow, setYearNow] = useState("");
-  const [alarmTime, setAlarmTime] = useState("");
-  const [hasAlarm, setHasAlarm] = useState(false);
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     let date = new Date();
+  const [horaJudaica, setHoraJudaica] = useState("");
+  const [horaVerificacao, setHoraVerificacao] = useState("");
+
+
 
   useEffect(() => {
     if (horaVerificacao == "") {
@@ -41,19 +80,12 @@ function ContextAlarm({ children }) {
     }
   }, []);
 
-  //     let HH = date.getHours(),
-  //       MM = date.getMinutes(),
-  //       day = date.getDate(),
-  //       month = date.getMonth(),
-  //       year = date.getFullYear(),
-  //       ampm;
+  const calculaMinuto = minutoNormal => {
+    return `São ${parseInt(minutoNormal / 5)} duodécimos`
+  }
 
-  //     if (HH >= 12) {
-  //       HH = HH - 12;
-  //       ampm = "PM";
-  //     } else {
-  //       ampm = "AM";
-  //     }
+  const calculaHora = horaNormal => {
+    let horaNova = 0
 
     if (horaNormal >= 0 && horaNormal <= 6) {
       horaNova = horaNormal + 6
@@ -70,70 +102,92 @@ function ContextAlarm({ children }) {
     }
   }
 
-  const calculaMinuto = minutoNormal => {
-    return `São ${parseInt(minutoNormal / 5)} duodécimos`
+  // quiz
+  const [questionNumber, setQuestionNumber] = useState(0);
+  const handleNextQuestion = () => {
+    if (questionNumber < questions.length - 1) {
+      setQuestionNumber(prev => prev + 1);
+    } else {
+      setQuestionNumber(questions.length + 1);
+    }
+  };
+
+  const [userAnswer, setUserAnswer] = useState({
+    hora: 0,
+    minutos: 0
+  })
+
+
+  const currentQuestion = questions[questionNumber]
+  const handleQuiz = () => {
+    if (userAnswer.hora === 0 && userAnswer.minutos === 0) {
+      alert("Defini primeira a hora.")
+      return
+    }
+
+    const correctAnswer = currentQuestion.answer
+    console.log(correctAnswer, userAnswer)
+    if (correctAnswer.hora == userAnswer.hora && correctAnswer.minutos == parseInt(userAnswer.minutos / 5)) {
+      setOpenModal(prev => {
+        return { ...prev, open: true, correctModal: true, wrongModal: false }
+      })
+      handleScore()
+    } else {
+      setOpenModal(prev => {
+        return { ...prev, open: true, correctModal: false, wrongModal: true }
+      })
+
+      // reset
+      setUserAnswer(prev => {
+        return { ...prev, hora: 0, minutos: 0 }
+      })
+    }
   }
 
-  //     if (HH === 0) HH = 12;
-  //     if (HH < 10) HH = `0${HH}`;
-  //     if (MM < 10) MM = `0${MM}`;
+  // MODALS
+  const [openModal, setOpenModal] = useState({ open: false, correctModal: false, wrongModal: false });
 
-  //     setHourDigital(HH);
-  //     setMinutesDigital(MM);
-  //     setAmPm(ampm);
-  //     setDayNow(day);
-  //     setMonthNow(months[month]);
-  //     setYearNow(year);
-  //   }, 1000);
-  // }, []);
+  const handleCloseModal = () => setOpenModal((prev) => {
+    return { ...prev, open: false, correctModal: false, wrongModal: false }
+  });
 
-  // const calculaHora = horaNormal => {
-  //   let horaNova = 0
+  // SCORE
+  const [score, setScore] = useState(0);
+  const handleScore = () => {
+    setScore(prev => prev + 1)
+  }
 
-  //   if (horaNormal >=0 && horaNormal<=6) {
-  //       horaNova = horaNormal + 6
-  //   } else if (horaNormal >= 7 && horaNormal <= 18) {
-  //       horaNormal = horaNormal - 6
-  //   } else {
-  //       horaNova = horaNormal - 18
-  //   }
+  // reset quiz
+  const resetQuiz = () => {
+    setUserAnswer({ hora: 0, minutos: 0 })
+    setScore(0)
+    setOpenModal({ open: false, correctModal: false, wrongModal: false })
+    setQuestionNumber(0)
+  }
 
-  //   if (horaNormal>=7 && horaNormal<=18) {
-  //       return `hora ${extensoes[horaNova]} (diurna)`
-  //   } else {
-  //       return `hora ${extensoes[horaNova]} noturna`
-  //   }
-  // }
-
-  // const calculaMinuto = minutoNormal => {
-  //   return `São ${parseInt(minutoNormal/5)} duodécimos`
-  // }
 
   return (
     <AlarmContext.Provider
       value={{
         hourDigital,
         minutesDigital,
-        horaJudaica,
-        setHoraVerificacao,
         hourAnalog,
         minutesAnalog,
-        setHourAnalog,
-        setMinutesAnalog
-        amPm,
-        dayNow,
-        monthNow,
-        yearNow,
-        alarmTime,
-        setAlarmTime,
-        hasAlarm,
-        setHasAlarm,
         setHourAnalog,
         setMinutesAnalog,
-        hourAnalog,
-        minutesAnalog,
-        setHourDigital,
-        setMinutesDigital
+        setMinutesDigital,
+        questions,
+        handleNextQuestion,
+        questionNumber,
+        userAnswer,
+        setUserAnswer,
+        currentQuestion,
+        handleQuiz,
+        openModal,
+        handleCloseModal,
+        handleScore,
+        score,
+        resetQuiz
       }}
     >
       {children}

@@ -9,7 +9,8 @@
   --text-color: hsl(var(--hue-color), 12%, 35%);
   --text-color-light: hsl(var(--hue-color), 12%, 65%);
   --white-color: #fff;
-  --body-color: #3d3d3d;
+  --body-color: #202020;
+  --primary-color: #06BA63;
 
   /*========== Font and typography ==========*/
   --body-font: "Poppins", sans-serif;
@@ -61,23 +62,123 @@ a {
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
+
 .container {
   max-width: 968px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   padding: 0 16px;
+  margin: 0 auto;
 }
 
 .grid {
   display: grid;
 }
 
+
+h1,
+h2,
+h3 {
+  color: white;
+  margin-top: 1rem;
+}
+
+p {
+  color: white;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+#historia{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#calcular {
+  background-color: var(--primary-color);
+  width: 100vw;
+  padding: 1rem;
+}
+
+#calcular>p,
+h1,
+h3 {
+  color: white;
+}
+
+#quiz {}
+
+.image {
+  width: 100%;
+}
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  padding: .5rem 2.5rem;
+  gap: 3px;
+  background-color: white;
+  color: var(--primary-color);
+  border: none;
+  border-radius: 0.625rem;
+  background: #FFF;
+
+  transition: .4s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  color: white;
+  background-color: var(--primary-color);
+  box-shadow: 0px 10px 11px 2px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px);
+}
+
+footer {
+  width: 100%;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 3rem;
+  gap: 1rem;
+  margin-top: 4rem;
+}
+
+footer>img {
+  width: 30%;
+  height: 20%;
+}
+
+footer>div {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+
+ul>li {
+  list-style-type: circle;
+}
+
+
 /*=============== CLOCK ===============*/
 .clock__container {
   height: 100vh;
   grid-template-rows: 1fr max-content;
 }
+
 
 /*=============== MEDIA QUERIES ===============*/
 /* For large devices */
@@ -86,5 +187,21 @@ a {
     margin-left: auto;
     margin-right: auto;
   }
-}
 
+  .lg-devices {
+    width: 50vw;
+    margin: 0 auto;
+  }
+
+  #quiz {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .image {
+    width: 100%;
+  }
+}

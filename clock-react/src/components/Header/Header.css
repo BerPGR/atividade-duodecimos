@@ -1,0 +1,45 @@
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.menu-icon {
+    color: #06BA63;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+}
+
+.menu-icon:hover {
+    color: #6ae7ab;
+    scale: 101%;
+}
+
+.menu-container {
+    width: 90vw;
+}
+
+.menu-desktop {
+    display: none;
+}
+
+
+@media screen and (min-width: 968px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .menu-desktop {
+        display: flex;
+        gap: 1rem;
+    }
+
+
+    a:hover {
+        text-decoration: underline;
+        color: white;
+    }
+}
