@@ -7,11 +7,11 @@ const extensoes = ["", "primeira", "segunda", "terceira", "quarta", "quinta", "s
 const questions = [
   {
       question: "Digite 9 duodécimos da hora terceira",
-      answer: { hora: 9, minutos: 45 }
+      answer: { hora: 9, minutos: 9 }
   },
   {
       question: "Digite 4 duodécimos da hora décima",
-      answer: { hora: 16, minutos: 20 }
+      answer: { hora: 16, minutos: 4 }
   },
   {
       question: "Digite a hora undécima noturna",
@@ -26,12 +26,12 @@ const questions = [
       answer: { hora: 23, minutos: 0 }
   },
   {
-      question: "Digite 6 duodécimos da hora duodécima noturna",
+      question: "Digite a hora duodécima noturna",
       answer: { hora: 6, minutos: 0 }
   },
   {
       question: "Digite 5 doudécimos da hora undécima",
-      answer: { hora: 17, minutos: 25 }
+      answer: { hora: 17, minutos: 5 }
   },
   {
       question: "Digite a hora nona noturna",
@@ -39,7 +39,7 @@ const questions = [
   },
   {
       question: "Digite 8 duodécimos da hora segunda noturna",
-      answer: { hora: 20, minutos: 40 }
+      answer: { hora: 20, minutos: 8 }
   },
   {
       question: "Digite a hora sexta noturna",
@@ -127,7 +127,7 @@ function ContextAlarm({ children }) {
 
     const correctAnswer = currentQuestion.answer
     console.log(correctAnswer, userAnswer)
-    if (correctAnswer.hora == userAnswer.hora && correctAnswer.minutos == userAnswer.minutos) {
+    if (correctAnswer.hora == userAnswer.hora && correctAnswer.minutos == parseInt(userAnswer.minutos / 5)) {
       setOpenModal(prev => {
         return { ...prev, open: true, correctModal: true, wrongModal: false }
       })

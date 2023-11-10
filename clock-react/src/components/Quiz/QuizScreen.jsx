@@ -39,8 +39,8 @@ const QuizScreen = () => {
                         <AnalogClock />
                     </div>
 
-                    <button className='setAlarm-btn' onClick={handleQuiz}>Responder</button>
-                    <button className='setAlarm-btn' onClick={handleNextQuestion}>Próxima</button>
+                    <button className='setAnswer-btn' onClick={handleQuiz}>Responder</button>
+                    <button className='setAnswer-btn' onClick={handleNextQuestion}>Próxima</button>
 
                     {openModal.open === true && <CorrectModal handleClose={handleCloseModal} open={openModal} />}
                 </div>
