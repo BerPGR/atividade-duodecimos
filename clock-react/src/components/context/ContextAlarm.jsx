@@ -6,45 +6,45 @@ const extensoes = ["", "primeira", "segunda", "terceira", "quarta", "quinta", "s
 
 const questions = [
   {
-    question: "Digite 9 horas da manhã",
-    answer: { hora: 9, minutos: 0 }
+      question: "Digite 9 duodécimos da hora terceira",
+      answer: { hora: 9, minutos: 45 }
   },
   {
-    question: "Digite 4 horas da tarde",
-    answer: { hora: 16, minutos: 0 }
+      question: "Digite 4 duodécimos da hora décima",
+      answer: { hora: 16, minutos: 20 }
   },
   {
-    question: "Digite 7 horas da manhã",
-    answer: { hora: 7, minutos: 0 }
+      question: "Digite a hora undécima noturna",
+      answer: { hora: 5, minutos: 0 }
   },
-  // {
-  //   question: "Digite 1 hora da tarde",
-  //   answer: { hora: 13, minutos: 0 }
-  // },
-  // {
-  //   question: "Digite 11 horas da noite",
-  //   answer: { hora: 23, minutos: 0 }
-  // },
-  // {
-  //   question: "Digite 6 horas da manhã",
-  //   answer: { hora: 6, minutos: 0 }
-  // },
-  // {
-  //   question: "Digite 5 horas da tarde",
-  //   answer: { hora: 17, minutos: 0 }
-  // },
-  // {
-  //   question: "Digite 3 horas da manhã",
-  //   answer: { hora: 3, minutos: 0 }
-  // },
-  // {
-  //   question: "Digite 8 horas da noite",
-  //   answer: { hora: 20, minutos: 0 }
-  // },
-  // {
-  //   question: "Digite 12 horas da noite",
-  //   answer: { hora: 0, minutos: 0 }
-  // }
+  {
+      question: "Digite a hora sétima",
+      answer: { hora: 13, minutos: 0 }
+  },
+  {
+      question: "Digite a hora quinta noturna",
+      answer: { hora: 23, minutos: 0 }
+  },
+  {
+      question: "Digite 6 duodécimos da hora duodécima noturna",
+      answer: { hora: 6, minutos: 0 }
+  },
+  {
+      question: "Digite 5 doudécimos da hora undécima",
+      answer: { hora: 17, minutos: 25 }
+  },
+  {
+      question: "Digite a hora nona noturna",
+      answer: { hora: 3, minutos: 0 }
+  },
+  {
+      question: "Digite 8 duodécimos da hora segunda noturna",
+      answer: { hora: 20, minutos: 40 }
+  },
+  {
+      question: "Digite a hora sexta noturna",
+      answer: { hora: 0, minutos: 0 }
+  }
 ];
 
 function ContextAlarm({ children }) {
