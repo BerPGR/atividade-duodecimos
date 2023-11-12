@@ -6,41 +6,25 @@
 - Gabriel Silva Barros
 - Walter Moura e Silva Junio
 
-## Checklist para o Projeto de Algoritmo em Computabilidade e Complexidade de Algoritmo
+<h1 align="center"><b>Duodécimos</b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1>
 
-### Fase 1: Análise [ ] 
+<br>
 
-[ nome ] Problema selecionado e definido claramente.
-[ nome ]  Compreensão aprofundada da natureza e desafios do problema.
-[ nome ] Modelo matemático ou teórico desenvolvido para representar o problema.
-### Fase 2: Planejamento [ ] 
+- **Languages**:
 
- [ nome ] Objetivos do algoritmo definidos com clareza.
- [ nome ] Métricas para avaliação de eficiência do algoritmo estabelecidas.
- [ nome ] Estratégia geral de resolução do problema proposta.
- [ nome ] Subproblemas identificados e divididos, se aplicável.
- [ nome ] Estrutura geral do algoritmo esboçada.
- [ nome ] Casos limite ou situações especiais identificados.
- [ nome ] Análise teórica realizada para verificar a correção do algoritmo.
-### Fase 3: Desenho [ ] 
+    ![Python](https://img.shields.io/badge/Python%20-%2314354C.svg?style=for-the-badge&logo=python&logoColor=white)
+    ![JavaScript](https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
 
- [ nome ] Análise de complexidade realizada para avaliar a eficiência teórica do algoritmo.
- [ nome ] Pontos críticos do algoritmo identificados para otimização, se necessário.
-### Fase 4: Programação e Teste [ ] 
+<br>   
+    
+- **Front-End Development**:
 
-[ nome ] Algoritmo traduzido com precisão em código de programação.
-[ nome ] Código de programação escrito de forma clara e organizada.
-[ nome ]  Testes rigorosos realizados em uma variedade de casos de teste.
-[ nome ] Casos limite e situações especiais testados.
-[ nome ] Erros e problemas durante o teste de programa identificados e corrigidos.
-Documentação e Avaliação do Projeto [ ] 
+   ![HTML5](https://img.shields.io/badge/HTML5%20-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+   ![CSS3](https://img.shields.io/badge/CSS%20-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+   ![JavaScript](https://img.shields.io/badge/JavaScript%20-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+   ![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 
- [ nome ] Documentação completa, incluindo especificação do algoritmo e análise de complexidade.
- [ nome ] Documentação revisada para clareza e rigor técnico.
- [ nome ] Avaliação da eficácia do algoritmo em termos de tempo de execução, uso de recursos e precisão na resolução do problema.
- [ nome ] Avaliação da colaboração da equipe e cumprimento dos prazos.
-Apresentação e Conclusão do Projeto [ ] 
+<br>
+</p>
 
-[ nome ] Apresentação do projeto preparada com informações claras e objetivas.
-[ nome ] Conclusões do projeto destacando os resultados e aprendizados.
-[ nome ] Discussão sobre o projeto e respostas a perguntas da audiência
+<br>
