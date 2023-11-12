@@ -28,3 +28,14 @@
 </p>
 
 <br>
+
+
+
+## Rotas
+O uso do React Router e do useContext se destaca, proporcionando uma navegação suave entre diferentes partes do aplicativo e uma gestão eficiente do estado global. 
+### "/" -> Home
+
+### "/quiz" -> Quiz
+* A rota em questão é um quiz interativo, onde os usuários podem responder a uma série de perguntas sobre o cálculo do duodécimo. 
+* Ao acessar esta rota, os usuários são apresentados às perguntas e opções de resposta.
+* Aqui é onde o componente useContext entra em cena, para gerenciar o estado global das respostas e outras informações relevantes do quiz.
