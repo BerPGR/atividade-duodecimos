@@ -48,7 +48,7 @@ const QuizScreen = () => {
                 <div className="stats-container">
                     <h1>FINALIZADO</h1>
                     <p>Seu Score Final: <span className='score'>{score}</span></p>
-                    <button className="btn-primary" style={{}} onClick={resetQuiz}>Jogar Novamente</button>
+                    <button className="btn-primary" onClick={resetQuiz}>Jogar Novamente</button>
                     <a href='/' className="btn-primary" style={{ fontSize: '1rem' }}>Voltar ao Início</a>
                 </div>
             }

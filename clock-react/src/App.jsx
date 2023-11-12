@@ -43,10 +43,10 @@ function App() {
             <p><b>21:37</b><br /> Hora: 21 - 18 = 3, logo, hora terceira noturna <br /> Minutos: 37 / 5 = 7, logo, 7 duodécimos</p>
             <p>Resultado: 7 duodécimos da hora terceira noturna</p>
 
-            <div className="send-to-calculate">
+            {/* <div className="send-to-calculate">
               <img src='./logo-alternative.png' className='image' />
               <a href="/calcular" className='btn-calcular'>Calcular <TbExternalLink /></a>
-            </div>
+            </div> */}
           </div>
 
         </section>
