@@ -115,10 +115,45 @@ h3 {
   color: white;
 }
 
+.send-to-calculate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.send-to-calculate img {
+  width: 80%;
+}
+
 #quiz {}
 
 .image {
   width: 100%;
+}
+
+.btn-calcular {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  padding: .5rem 2.5rem;
+  gap: 3px;
+  background-color: transparent;
+  color: var(--white-color);
+  border: 2px solid var(--white-color);
+  border-radius: 0.625rem;
+
+
+  transition: .2s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-calcular:hover {
+  color: var(--primary-color);
+  background-color: var(--white-color);
+  box-shadow: 0px 10px 11px 2px rgba(0, 0, 0, 0.5);
+  transform: translateY(-10px);
 }
 
 .btn-primary {
@@ -133,7 +168,7 @@ h3 {
   border-radius: 0.625rem;
   background: #FFF;
 
-  transition: .4s ease-in-out;
+  transition: .2s ease-in-out;
   cursor: pointer;
 }
 
@@ -188,6 +223,18 @@ ul>li {
     margin-right: auto;
   }
 
+  .send-to-calculate img {
+    width: 60%;
+  }
+
+  .send-to-calculate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .lg-devices {
     width: 50vw;
     margin: 0 auto;
@@ -203,5 +250,24 @@ ul>li {
 
   .image {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    text-align: center;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  footer ul {
+    margin-top: 10px;
+  }
+
+  #calcular {
+    text-align: center;
   }
 }

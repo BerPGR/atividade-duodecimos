@@ -20,20 +20,11 @@ function AlarmOption() {
   const [hour, setHour] = useSelect("Horas");
   const [minutes, setMinutes] = useSelect("Minutos");
 
-  // user answer
-  // const [userAnswer, setUserAnswer] = useState({
-  //   hora: 0,
-  //   minutos: 0
-  // })
-
-
   const setHorasDuodecimo = () => {
     if (!hour.includes("Horas") && !minutes.includes("Minutos")) {
       setHoraVerificacao(`${hour}:${minutes}`);
     }
   };
-
-
 
   // Formulario
   const { register, handleSubmit, reset } = useForm();

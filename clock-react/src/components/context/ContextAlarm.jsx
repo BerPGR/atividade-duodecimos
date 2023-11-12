@@ -3,7 +3,6 @@ export const AlarmContext = createContext();
 
 const extensoes = ["", "primeira", "segunda", "terceira", "quarta", "quinta", "sexta", "sétima", "oitava", "nona", "décima", "undécima", "duodécima"]
 
-
 const questions = [
   {
       question: "Digite 9 duodécimos da hora terceira",
@@ -71,12 +70,14 @@ function ContextAlarm({ children }) {
       setHourDigital(HH);
       setMinutesDigital(MM);
     } else {
+      console.log("Entrou no else");
       let horasNormais = horaVerificacao.split(":")
       setHourDigital(horasNormais[0])
       setMinutesDigital(horasNormais[1])
       const horaJudaica = calculaHora(parseInt(horasNormais[0]))
       const minutoJudaico = calculaMinuto(parseInt(horasNormais[1]))
       setHoraJudaica(`${horaJudaica} ${minutoJudaico}`)
+      console.log("Entrou aqui");
     }
   }, []);
 
@@ -121,7 +122,7 @@ function ContextAlarm({ children }) {
   const currentQuestion = questions[questionNumber]
   const handleQuiz = () => {
     if (userAnswer.hora === 0 && userAnswer.minutos === 0) {
-      alert("Defini primeira a hora.")
+      alert("Define primeira a hora.")
       return
     }
 
@@ -169,6 +170,7 @@ function ContextAlarm({ children }) {
   return (
     <AlarmContext.Provider
       value={{
+        setHoraVerificacao,
         hourDigital,
         minutesDigital,
         hourAnalog,
@@ -187,7 +189,8 @@ function ContextAlarm({ children }) {
         handleCloseModal,
         handleScore,
         score,
-        resetQuiz
+        resetQuiz,
+        horaJudaica
       }}
     >
       {children}

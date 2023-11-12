@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import Quiz from './components/Quiz/Quiz';
+import Calculo from './components/Calcular/Calculo';
 
 import {
   createBrowserRouter,
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/quiz",
     element: <Quiz />
+  },
+  {
+    path: "/calcular",
+    element: <Calculo />
   }
 ]);
 

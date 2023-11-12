@@ -31,7 +31,7 @@ const Header = () => {
             {location.pathname != '/quiz' && <HiOutlineMenuAlt3 className='menu-icon' onClick={handleMenu} />}
 
 
-            {location.pathname == '/quiz' ?
+            {location.pathname == '/quiz' || location.pathname == '/calcular' ?
                 <a href='/'>
                     <HiHome size={20} />
                 </a>
