@@ -6,7 +6,7 @@
 - Gabriel Silva Barros
 - Walter Moura e Silva Junio
 
-<h1 align="center"><b>Duodécimos</b><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35"></h1
+<h1 align="center"><b>Duodécimos</b></h1
                                                                                                                          
 ![duodecimo](https://github.com/BerPGR/atividade-duodecimos/assets/76067595/28bda8d6-721b-4139-88d8-560363980925)
                                                                                                      
