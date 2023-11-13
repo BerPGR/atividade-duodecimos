@@ -10,6 +10,7 @@ import CorrectModal from '../ModalsQuiz/ModalFeedback';
 
 
 const QuizScreen = () => {
+    // Estados vindo do contexto
     const {
         handleNextQuestion,
         handleQuiz,
@@ -21,10 +22,12 @@ const QuizScreen = () => {
         resetQuiz
     } = useContext(AlarmContext);
 
+    // tamanho da lista de questoes
     const questionsLength = questions.length
 
     return (
         <div className='container'>
+            {/* enquanto a questao atual for meno que o tamanho da lista, renderiza o quiz */}
             {questionNumber < questionsLength
                 ?
                 <div className='quiz-container'>
@@ -45,14 +48,15 @@ const QuizScreen = () => {
                     {openModal.open === true && <CorrectModal handleClose={handleCloseModal} open={openModal} />}
                 </div>
                 :
-                <div className="stats-container">
+                // Senao renderiza o fim do quiz
+                < div className="stats-container">
                     <h1>FINALIZADO</h1>
                     <p>Seu Score Final: <span className='score'>{score}</span></p>
                     <button className="btn-primary" onClick={resetQuiz}>Jogar Novamente</button>
                     <a href='/' className="btn-primary" style={{ fontSize: '1rem' }}>Voltar ao Início</a>
                 </div>
             }
-        </div>
+        </div >
     )
 }
 

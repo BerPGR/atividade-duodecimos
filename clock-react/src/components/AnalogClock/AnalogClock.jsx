@@ -10,7 +10,6 @@ function AnalogClock() {
 
   useEffect(() => {
     clock();
-    // console.log(hourDigital, minutesDigital)
   }, [hourAnalog, minutesAnalog])
 
   const clock = () => {

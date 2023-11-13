@@ -10,13 +10,17 @@ import { useLocation } from 'react-router-dom';
 
 
 const Header = () => {
+    // instancia do location para usar na url
     const location = useLocation();
+    // estado do menu
     const [openMenu, setOpenMenu] = useState(false)
+    // logica do menu. Inverte o estado atual
     const handleMenu = () => {
         setOpenMenu(prev => !prev)
     }
 
 
+    // se for true abre o menu mobile
     if (openMenu) {
         return (
             <MenuMobile open={openMenu} handleMenu={handleMenu} />
@@ -28,9 +32,10 @@ const Header = () => {
         <header className='container-header'>
             <img src='./logo.png' width={100} />
 
+            {/* se a url for diferente de "/quiz" renderiza o menu padrao */}
             {location.pathname != '/quiz' && <HiOutlineMenuAlt3 className='menu-icon' onClick={handleMenu} />}
 
-
+            {/* se a url for igual a "/quiz" renderiza o menu com o botao para Home */}
             {location.pathname == '/quiz' || location.pathname == '/calcular' ?
                 <a href='/'>
                     <HiHome size={20} />

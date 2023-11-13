@@ -1,3 +1,5 @@
+// Logica do tempo do relogio
+
 const minutesNumber = fixNumber(Array.from(Array(60).keys()))
 const hourNumber = fixNumber(Array.from(Array(24).keys()))
 

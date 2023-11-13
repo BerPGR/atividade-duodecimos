@@ -9,8 +9,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { AlarmContext } from './components/context/ContextAlarm';
 
+// rotas do projeto
 const router = createBrowserRouter([
   {
     path: "/",
