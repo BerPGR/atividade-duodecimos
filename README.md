@@ -57,6 +57,9 @@ A implementação técnica envolve o uso das seguintes funcionalidades React:
 
 - **UseSelect:** Usado para criar seletores de escolha personalizados, proporcionando uma experiência de usuário mais amigável.
 
+## Hospedagem
+O código foi hospedado no Vercel e está acessível através do seguinte link: [Duodécimo no Vercel](https://duotimer.vercel.app/).
+
 ## Testes e Dificuldades
 A fase de testes concentrou-se principalmente na rota de Quiz, onde foram verificadas a lógica do relógio e a funcionalidade do quiz. As dificuldades mais significativas foram encontradas durante a implementação do Quiz usando o UseContext, exigindo uma cuidadosa gestão do estado global para garantir um funcionamento suave.
 
