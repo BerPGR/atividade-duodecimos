@@ -8,6 +8,10 @@ function AnalogClock() {
   const [seconds, setSeconds] = useState("");
   const { hasAlarm, hourAnalog, minutesAnalog } = useContext(AlarmContext);
 
+
+/*
+useEffect usado para fazer as mudanças no relógiodo quiz
+*/
   useEffect(() => {
     clock();
   }, [hourAnalog, minutesAnalog])
@@ -17,6 +21,10 @@ function AnalogClock() {
     setMinutes(`rotateZ(${minutesAnalog * 6}deg)`);
   };
 
+  /*
+    HTML que representa o componente
+    do relógio no quiz.
+  */
   return (
     <div className="clock__circle">
       <span className="clock__twelve"></span>
